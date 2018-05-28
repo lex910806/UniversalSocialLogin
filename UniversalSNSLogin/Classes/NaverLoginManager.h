@@ -7,7 +7,5 @@
 //
 
 #import "UniversalSocialLogin.h"
-
 @interface NaverLoginManager : SocialLoginManager
-
 @end

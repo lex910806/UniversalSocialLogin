@@ -22,7 +22,7 @@ pod 'UniversalSNSLogin'
 
 ## Author
 
-lex910806, jh@sweettracker.co.kr
+JiHoon, lex910806@gmail.com
 
 ## License
 

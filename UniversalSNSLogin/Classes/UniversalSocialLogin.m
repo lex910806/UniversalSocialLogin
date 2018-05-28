@@ -39,6 +39,10 @@
     return manager;
 }
 
++(void)setSecureKeyWith:(NSDictionary *)dic {
+    UniversalSocialLogin *shared = [UniversalSocialLogin sharedInstance];
+    shared.secureKeys = [dic copy];
+}
 -(void) configure:(UIApplication *)application with:(NSDictionary *)launchOptions {
     
     [FIRApp configure];

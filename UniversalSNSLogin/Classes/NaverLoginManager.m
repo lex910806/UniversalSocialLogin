@@ -17,10 +17,25 @@
     self = [super init];
     if (self) {
         naverConnection = [NaverThirdPartyLoginConnection getSharedInstance];
-        [naverConnection setServiceUrlScheme:kServiceAppUrlScheme];
-        [naverConnection setConsumerKey:kConsumerKey];
-        [naverConnection setConsumerSecret:kConsumerSecret];
-        [naverConnection setAppName:kServiceAppName];
+        UniversalSocialLogin *shared = [UniversalSocialLogin sharedInstance];
+        if(shared.secureKeys != nil) {
+            NSString *appScheme = [shared.secureKeys objectForKey: NAVER_SERVICEAPPSCHEME];
+            if(appScheme != nil && ![appScheme isEqualToString:@""]) {
+                [naverConnection setServiceUrlScheme:appScheme];
+            }
+            NSString *consumerKey = [shared.secureKeys objectForKey:NAVER_CONSUMERKEY];
+            if(consumerKey != nil && ![consumerKey isEqualToString:@""]) {
+                [naverConnection setConsumerKey:consumerKey];
+            }
+            NSString *consumerSecret = [shared.secureKeys objectForKey:NAVER_CONSUMERSECRET];
+            if(consumerSecret != nil && ![consumerSecret isEqualToString:@""]) {
+                [naverConnection setConsumerSecret:consumerSecret];
+            }
+            NSString *serviceAppName = [shared.secureKeys objectForKey:NAVER_SERVICEAPPNAME];
+            if(serviceAppName != nil && ![serviceAppName isEqualToString:@""]) {
+                [naverConnection setAppName:serviceAppName];
+            }
+        }
         [naverConnection setDelegate:self];
     }
     return self;

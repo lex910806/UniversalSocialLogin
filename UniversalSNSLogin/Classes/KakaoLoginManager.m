@@ -17,7 +17,13 @@
     self = [super init];
     if (self) {
         kakaoConnection = [KOSession sharedSession];
-        [kakaoConnection setClientSecret: @"ISc5uOz4xwTIkqRaIf2eoV0lMIhSDvBa"];
+        UniversalSocialLogin *shared = [UniversalSocialLogin sharedInstance];
+        if(shared.secureKeys != nil) {
+            NSString *securityKey = [shared.secureKeys objectForKey: KAKAO_SECURITY];
+            if(securityKey != nil && ![securityKey isEqualToString:@""]) {
+                [kakaoConnection setClientSecret: securityKey];
+            }
+        }
     }
     return self;
 }
