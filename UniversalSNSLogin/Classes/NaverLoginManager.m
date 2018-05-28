@@ -23,11 +23,11 @@
             if(appScheme != nil && ![appScheme isEqualToString:@""]) {
                 [naverConnection setServiceUrlScheme:appScheme];
             }
-            NSString *consumerKey = [shared.secureKeys objectForKey:NAVER_CONSUMERKEY];
+            NSString *consumerKey = [shared.secureKeys objectForKey:NAVER_CLIENTKEY];
             if(consumerKey != nil && ![consumerKey isEqualToString:@""]) {
                 [naverConnection setConsumerKey:consumerKey];
             }
-            NSString *consumerSecret = [shared.secureKeys objectForKey:NAVER_CONSUMERSECRET];
+            NSString *consumerSecret = [shared.secureKeys objectForKey:NAVER_CLIENTSECRET];
             if(consumerSecret != nil && ![consumerSecret isEqualToString:@""]) {
                 [naverConnection setConsumerSecret:consumerSecret];
             }

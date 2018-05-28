@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "SocialLoginManager.h"
 
-#define NAVER_SERVICEAPPSCHEME  @"naverServiceScheme"
-#define NAVER_CONSUMERKEY       @"naverConsumerkey"
-#define NAVER_CONSUMERSECRET    @"naverConsumerSecret"
-#define NAVER_SERVICEAPPNAME    @"naverServiceAppName"
+#define NAVER_SERVICEAPPSCHEME  @"ServiceAppUrlScheme"
+#define NAVER_CLIENTKEY         @"ClientKey"
+#define NAVER_CLIENTSECRET      @"ClientSecret"
+#define NAVER_SERVICEAPPNAME    @"ServiceAppName"
 
 #define KAKAO_SECURITY          @"kakaoSecurity"
 
@@ -25,6 +25,7 @@
 @property (nonatomic, strong) SocialLoginManager *loginManager;
 +(UniversalSocialLogin *)sharedInstance;
 +(SocialLoginManager *)makeManagerWith:(SocialType) type;
++(void) setSecureKeyWith:(NSDictionary*)dic;
 -(void) configure:(UIApplication *)application with:(NSDictionary *)launchOptions;
 -(void) didEnterBackground;
 -(SocialType) socialType;

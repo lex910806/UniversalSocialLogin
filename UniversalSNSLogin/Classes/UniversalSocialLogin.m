@@ -38,13 +38,11 @@
     [[UniversalSocialLogin sharedInstance] setLoginManager:manager];
     return manager;
 }
-
 +(void)setSecureKeyWith:(NSDictionary *)dic {
     UniversalSocialLogin *shared = [UniversalSocialLogin sharedInstance];
     shared.secureKeys = [dic copy];
 }
 -(void) configure:(UIApplication *)application with:(NSDictionary *)launchOptions {
-    
     [FIRApp configure];
     [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -57,6 +55,13 @@
             [manager autoRefreshToken];
             [[UniversalSocialLogin sharedInstance] setLoginManager:manager];
         }
+    }
+    
+    
+    NSDictionary *info = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"]];
+    NSDictionary * naverInfoDic = [info objectForKey:@"NAVER_KEYS"];
+    if(naverInfoDic != nil) {
+        [[UniversalSocialLogin sharedInstance] setSecureKeys:naverInfoDic];
     }
 }
 -(void)didEnterBackground {
