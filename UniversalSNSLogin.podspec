@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'UniversalSNSLogin'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of UniversalSNSLogin.'
+  s.summary          = 'Package for Naver, Kakao, Facebook, Google'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,22 +21,18 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/lex910806/UniversalSNSLogin'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://Lee-JiHoon@bitbucket.org/2jihoon/universalsociallogin_cocoapods'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'lex910806' => 'jh@sweettracker.co.kr' }
-  s.source           = { :git => 'https://github.com/lex910806/UniversalSNSLogin.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'lex910806' => 'lex910806@gmail.com' }
+  s.source           = { :git => 'https://Lee-JiHoon@bitbucket.org/2jihoon/universalsociallogin_cocoapods.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://www.instagram.com/_2jihoon/'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'UniversalSNSLogin/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'UniversalSNSLogin' => ['UniversalSNSLogin/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'naveridlogin-sdk-ios'
+  s.dependency 'Firebase/Auth'
+  s.dependency 'GoogleSignIn'
+  s.dependency 'FBSDKLoginKit'
+  s.vendored_frameworks = 'KakaoOpenSDK.framework'
 end
