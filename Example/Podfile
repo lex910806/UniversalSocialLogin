@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'UniversalSNSLogin_Example' do
+  pod 'UniversalSNSLogin', :path => '../'
+
+  target 'UniversalSNSLogin_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
