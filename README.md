@@ -21,7 +21,7 @@ pod 'UniversalSNSLogin'
 ```
 
 ## Author
-
+asdasd
 JiHoon, lex910806@gmail.com
 
 ## License
